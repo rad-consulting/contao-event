@@ -49,7 +49,7 @@ $GLOBALS['TL_DCA']['tl_rad_event']['list'] = array(
     'operations' => array(
         'log' => array(
             'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['log'],
-            'href' => 'table=tl_g4g_log',
+            'href' => 'table=tl_rad_log',
             'icon' => 'news.gif',
             'button_callback' => array('RAD\\Log\\Backend\\Button', 'forLog'),
         ),
