@@ -104,7 +104,7 @@ class EventDispatcher
                         }
                     }
 
-                    // $event->delete();
+                    $event->delete();
                 }
             }
         }
@@ -115,8 +115,6 @@ class EventDispatcher
      */
     public function addListener($event, $listener, $priority = 0)
     {
-        System::log(json_encode($listener), __METHOD__, TL_ERROR);
-
         $this->listeners[$event][$priority][] = $listener;
         unset($this->sorted[$event]);
 
