@@ -91,15 +91,18 @@ class EventDispatcher
         if ($events instanceof Model\Collection && $events->count()) {
             foreach ($events as $event) {
                 if ($event instanceof Event && 0 == $event->getAttempt() || $event->getTimestamp() + $event->getTimeout() < time()) {
+                    $event->run()->save();
+
                     foreach ($this->getListeners($event) as $listener) {
                         try {
-                            $event->run()->save();
                             call_user_func_array($listener, array($event, $event->getName(), $this));
                         }
                         catch (Exception $e) {
                             $event->wait($e)->save();
                         }
                     }
+
+                    $event->delete();
                 }
             }
         }
