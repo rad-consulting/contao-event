@@ -152,6 +152,8 @@ class EventDispatcher
      */
     public function addSubscriber(EventSubscriberInterface $subscriber)
     {
+        System::log(get_class($subscriber), __METHOD__, TL_GENERAL);
+
         foreach ($subscriber->getSubscribedEvents() as $event => $params) {
             if (is_string($params)) {
                 $this->addListener($event, array($subscriber, $params));
