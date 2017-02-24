@@ -9,7 +9,7 @@ namespace RAD\Event\Model;
 
 use Exception;
 use Contao\Model;
-use RAD\Log\Model\LogModel;
+use RAD\Log\Model\LogModel as Log;
 
 /**
  * Class EventModel
@@ -109,6 +109,14 @@ class EventModel extends Model
     }
 
     /**
+     * @return int
+     */
+    public function getAttempt()
+    {
+        return $this->attempt;
+    }
+
+    /**
      * @return string
      */
     public function getName()
@@ -157,6 +165,22 @@ class EventModel extends Model
     }
 
     /**
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->timeout;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTimestamp()
+    {
+        return $this->tstamp;
+    }
+
+    /**
      * @return bool
      */
     public function isError()
@@ -199,14 +223,14 @@ class EventModel extends Model
      * @param string|null      $data
      * @return $this
      */
-    public function log($message, $level = LogModel::INFO, $data = null)
+    public function log($message, $level = Log::INFO, $data = null)
     {
         if ($message instanceof Exception) {
             $level = $message->getCode();
             $message = $message->getMessage();
         }
 
-        LogModel::log($this, $message, $level, $data);
+        Log::log($this, $message, $level, $data);
 
         return $this;
     }
@@ -216,7 +240,7 @@ class EventModel extends Model
      */
     public function delete()
     {
-        LogModel::deleteByModel($this);
+        Log::deleteByModel($this);
 
         return parent::delete();
     }
