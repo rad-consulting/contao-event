@@ -94,12 +94,11 @@ class EventDispatcher
                     $event->run()->save();
 
                     foreach ($this->getListeners($event) as $listener) {
-                        System::log(json_encode($listener), __METHOD__, TL_ERROR);
-
                         try {
                             call_user_func_array($listener, array($event, $event->getName(), $this));
                         }
                         catch (Exception $e) {
+                            System::log($e->getMessage(), __METHOD__, TL_ERROR);
                             $event->wait($e)->save();
                         }
                     }
