@@ -94,6 +94,8 @@ class EventDispatcher
                     $event->run()->save();
 
                     foreach ($this->getListeners($event) as $listener) {
+                        System::log(json_encode($listener), __METHOD__, TL_ERROR);
+
                         try {
                             call_user_func_array($listener, array($event, $event->getName(), $this));
                         }
@@ -102,7 +104,7 @@ class EventDispatcher
                         }
                     }
 
-                    $event->delete();
+                    // $event->delete();
                 }
             }
         }
@@ -152,8 +154,6 @@ class EventDispatcher
      */
     public function addSubscriber(EventSubscriberInterface $subscriber)
     {
-        System::log(get_class($subscriber), __METHOD__, TL_GENERAL);
-
         foreach ($subscriber->getSubscribedEvents() as $event => $params) {
             if (is_string($params)) {
                 $this->addListener($event, array($subscriber, $params));
