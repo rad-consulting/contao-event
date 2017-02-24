@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_rad_event']['list'] = array(
     'label' => array(
         'fields' => array('id', 'tstamp', 'status', 'attempt', 'timeout', 'name', 'subject', 'error'),
         'showColumns' => true,
-        'label_callback' => array('RAD\\Event\\Backend\\Listing', 'listEvent'),
+        // 'label_callback' => array('RAD\\Event\\Backend\\Listing', 'listEvent'),
     ),
     'global_operations' => array(
         'back' => array(
