@@ -115,7 +115,7 @@ class EventDispatcher
      */
     public function addListener($event, $listener, $priority = 0)
     {
-        System::log(json_encode(array($event, $listener, $priority)), __METHOD__, TL_ERROR);
+        System::log(json_encode($listener), __METHOD__, TL_ERROR);
 
         $this->listeners[$event][$priority][] = $listener;
         unset($this->sorted[$event]);
@@ -158,14 +158,14 @@ class EventDispatcher
     {
         foreach ($subscriber->getSubscribedEvents() as $event => $params) {
             if (is_string($params)) {
-                $this->addListener($event, array($subscriber, $params));
+                $this->addListener($event, array(get_class($subscriber), $params));
             }
             elseif (is_string($params[0])) {
-                $this->addListener($event, array($subscriber, $params[0]), isset($params[1]) ? $params[1] : 0);
+                $this->addListener($event, array(get_class($subscriber), $params[0]), isset($params[1]) ? $params[1] : 0);
             }
             else {
                 foreach ($params as $listener) {
-                    $this->addListener($event, array($subscriber, $listener[0]), isset($listener[1]) ? $listener[1] : 0);
+                    $this->addListener($event, array(get_class($subscriber), $listener[0]), isset($listener[1]) ? $listener[1] : 0);
                 }
             }
         }
