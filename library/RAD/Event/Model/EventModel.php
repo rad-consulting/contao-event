@@ -214,7 +214,7 @@ class EventModel extends Model
 
         if ($e) {
             $this->error = 1;
-            $this->log($e);
+            $this->log($e, Log::ERROR);
         }
 
         return $this;
@@ -229,7 +229,6 @@ class EventModel extends Model
     public function log($message, $level = Log::INFO, $data = null)
     {
         if ($message instanceof Exception) {
-            $level = $message->getCode();
             $message = $message->getMessage();
         }
 
