@@ -45,16 +45,19 @@ class EventModel extends Model
      * @param int        $timeout
      * @return static
      */
-    public static function factory($name, Model $subject, array $arguments = null, $timeout = 295)
+    public static function factory($name, Model $subject = null, array $arguments = null, $timeout = 295)
     {
         $instance = new static();
         $instance->name = $name;
-        $instance->pid = $subject->id;
-        $instance->ptable = $subject::getTable();
         $instance->tstamp = time();
         $instance->status = static::WAITING;
         $instance->argument = $arguments ? serialize($arguments) : null;
         $instance->timeout = $timeout;
+
+        if ($subject) {
+            $instance->pid = $subject->id;
+            $instance->ptable = $subject::getTable();
+        }
 
         return $instance;
     }
@@ -140,7 +143,7 @@ class EventModel extends Model
      */
     public function getSubject()
     {
-        if (!empty($this->pid) || empty(!$this->ptable)) {
+        if (!empty($this->pid) || !empty($this->ptable)) {
             $class = $GLOBALS['TL_MODELS'][$this->ptable];
             $subject = forward_static_call(array($class, 'findByPk'), $this->pid);
 
