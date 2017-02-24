@@ -122,9 +122,11 @@ class EventDispatcher
     /**
      * @inheritdoc
      */
-    public function getListeners($event = null)
+    public function getListeners(Event $event = null)
     {
         if (null !== $event) {
+            $event = $event->getName();
+
             if (!isset($this->listeners[$event])) {
                 return array();
             }
