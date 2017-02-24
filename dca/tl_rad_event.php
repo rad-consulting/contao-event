@@ -28,9 +28,9 @@ $GLOBALS['TL_DCA']['tl_rad_event']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'status', 'attempt', 'timeout', 'name', 'ptable', 'pid', 'error'),
+        'fields' => array('id', 'tstamp', 'status', 'attempt', 'timeout', 'name', 'ptable', 'error'),
         'showColumns' => true,
-        // 'label_callback' => array('RAD\\Event\\Backend\\Listing', 'listEvent'),
+        'label_callback' => array('RAD\\Event\\Backend\\Listing', 'listEvent'),
     ),
     'global_operations' => array(
         'back' => array(
