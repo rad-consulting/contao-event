@@ -93,17 +93,16 @@ class EventDispatcher
                 if ($event instanceof Event && 0 == $event->getAttempt() || $event->getTimestamp() + $event->getTimeout() < time()) {
                     $event->run()->save();
 
-                    foreach ($this->getListeners($event) as $listener) {
-                        try {
+                    try {
+                        foreach ($this->getListeners($event) as $listener) {
                             call_user_func_array($listener, array($event, $event->getName(), $this));
                         }
-                        catch (Exception $e) {
-                            System::log($e->getMessage(), __METHOD__, TL_ERROR);
-                            $event->wait($e)->save();
-                        }
-                    }
 
-                    $event->delete();
+                        $event->delete();
+                    }
+                    catch (Exception $e) {
+                        $event->wait($e)->save();
+                    }
                 }
             }
         }
