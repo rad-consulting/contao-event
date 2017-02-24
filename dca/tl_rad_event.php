@@ -14,7 +14,7 @@ $GLOBALS['TL_DCA']['tl_rad_event']['config'] = array(
     'sql' => array(
         'keys' => array(
             'id' => 'primary',
-            'name,subject' => 'unique',
+            'pid,ptable,name' => 'unique',
         ),
     ),
 );
@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_rad_event']['list'] = array(
         'flag' => 12,
     ),
     'label' => array(
-        'fields' => array('id', 'tstamp', 'status', 'attempt', 'timeout', 'name', 'subject', 'error'),
+        'fields' => array('id', 'tstamp', 'status', 'attempt', 'timeout', 'name', 'ptable', 'pid', 'error'),
         'showColumns' => true,
         // 'label_callback' => array('RAD\\Event\\Backend\\Listing', 'listEvent'),
     ),
@@ -79,6 +79,14 @@ $GLOBALS['TL_DCA']['tl_rad_event']['fields'] = array(
         'sql' => "int(10) unsigned NOT NULL auto_increment",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['id'],
     ),
+    'pid' => array(
+        'sql' => "int(10) unsigned NOT NULL default '0'",
+        'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['pid'],
+    ),
+    'ptable' => array(
+        'sql' => "char(255) NOT NULL default ''",
+        'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['ptable'],
+    ),
     'tstamp' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['tstamp'],
@@ -94,10 +102,6 @@ $GLOBALS['TL_DCA']['tl_rad_event']['fields'] = array(
     'name' => array(
         'sql' => "char(64) NOT NULL default ''",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['name'],
-    ),
-    'subject' => array(
-        'sql' => "char(255) NOT NULL default ''",
-        'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['subject'],
     ),
     'argument' => array(
         'sql' => "char(255) NOT NULL default ''",
