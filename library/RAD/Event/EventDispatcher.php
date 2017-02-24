@@ -101,7 +101,6 @@ class EventDispatcher
                         $event->delete();
                     }
                     catch (Exception $e) {
-                        System::log($e->getMessage(), __METHOD__, TL_ERROR);
                         $event->wait($e)->save();
                     }
                 }

@@ -233,7 +233,7 @@ class EventModel extends Model
             $message = $message->getMessage();
         }
 
-        Log::log($this, $message, $level, $data);
+        Log::factory($this, $message, $level, $data)->save();
 
         return $this;
     }
