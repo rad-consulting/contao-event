@@ -95,7 +95,8 @@ class EventDispatcher
 
                     try {
                         foreach ($this->getListeners($event) as $listener) {
-                            call_user_func_array($listener, array($event, $event->getName(), $this));
+                            $instance = System::importStatic($listener[0]);
+                            call_user_func_array(array($instance, $listener[1]), array($event, $event->getName(), $this));
                         }
 
                         $event->delete();
