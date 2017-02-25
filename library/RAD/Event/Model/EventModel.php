@@ -9,6 +9,7 @@ namespace RAD\Event\Model;
 
 use Exception;
 use Contao\Model;
+use RAD\Log\LogException;
 use RAD\Log\Model\LogModel as Log;
 
 /**
@@ -228,7 +229,11 @@ class EventModel extends Model
      */
     public function log($message, $level = Log::INFO, $data = null)
     {
-        if ($message instanceof Exception) {
+        if ($message instanceof LogException) {
+            $data = $message->getData();
+            $message = $message->getMessage();
+        }
+        else if ($message instanceof Exception) {
             $message = $message->getMessage();
         }
 
