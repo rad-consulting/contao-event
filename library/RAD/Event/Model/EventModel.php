@@ -9,6 +9,8 @@ namespace RAD\Event\Model;
 
 /**
  * Class EventModel
+ *
+ * @deprecated
  */
 class EventModel extends Event
 {
