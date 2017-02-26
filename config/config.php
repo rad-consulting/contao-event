@@ -18,3 +18,8 @@ $GLOBALS['BE_MOD']['system']['events'] = array(
     'icon' => 'system/themes/flexible/images/about.gif',
     'exec' => array('RAD\\Event\\Backend\\Command', 'executeEvent'),
 );
+
+$GLOBALS['RAD_LOG_ENTITIES']['events'] = array(
+    'ptable' => 'tl_rad_event',
+    'headerFields' => array('id', 'name', 'tstamp', 'attempt', 'timeout'),
+);
