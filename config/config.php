@@ -8,7 +8,7 @@
 
 
 // Event
-$GLOBALS['TL_MODELS'][\RAD\Event\Model\EventModel::getTable()] = 'RAD\\Event\\Model\\EventModel';
+$GLOBALS['TL_MODELS'][\RAD\Event\Model\Event::getTable()] = 'RAD\\Event\\Model\\Event';
 $GLOBALS['TL_CRON']['minutely'][] = array('RAD\\Event\\EventDispatcher', 'run');
 $GLOBALS['RAD_LISTENERS'] = array();
 $GLOBALS['RAD_SUBSCRIBERS'] = array();

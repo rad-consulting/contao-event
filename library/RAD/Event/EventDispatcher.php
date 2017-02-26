@@ -10,7 +10,7 @@ namespace RAD\Event;
 use Exception;
 use Contao\Model;
 use Contao\System;
-use RAD\Event\Model\EventModel as Event;
+use RAD\Event\Model\Event;
 
 /**
  * Class EventDispatcher

@@ -10,10 +10,10 @@ namespace RAD\Event\Model;
 use Exception;
 use Contao\Model;
 use RAD\Log\LogException;
-use RAD\Log\Model\LogModel as Log;
+use RAD\Log\Model\Log;
 
 /**
- * Class EventModel
+ * Class Event
  *
  * @property int    $id
  * @property int    $pid
@@ -26,7 +26,7 @@ use RAD\Log\Model\LogModel as Log;
  * @property string $ptable
  * @property string $argument
  */
-class EventModel extends Model
+class Event extends Model
 {
     /**
      * @const int
