@@ -11,7 +11,7 @@ namespace RAD\Event\Backend;
 use Contao\Backend;
 use Contao\Controller;
 use Contao\DC_Table;
-use RAD\Event\Model\EventModel as Event;
+use RAD\Event\Model\Event as Event;
 use Haste\Input\Input;
 
 /**
