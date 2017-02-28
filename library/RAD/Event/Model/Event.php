@@ -215,7 +215,7 @@ class Event extends Model
 
         if ($e) {
             $this->error = 1;
-            $this->log($e, Log::ERROR);
+            $this->log($e, $e->getCode());
         }
 
         return $this;
