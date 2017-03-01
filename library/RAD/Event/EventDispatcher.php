@@ -58,7 +58,7 @@ class EventDispatcher
             }
         }
 
-        // Attach listeners
+        // TODO: Attach listeners from config.php
     }
 
     /**
@@ -70,12 +70,17 @@ class EventDispatcher
      */
     public function dispatch($event, Model $subject = null, array $arguments = null, $timeout = 295)
     {
-        if (is_string($event)) {
-            $event = Event::factory($event, $subject, $arguments, $timeout);
-        }
+        try {
+            if (is_string($event)) {
+                $event = Event::factory($event, $subject, $arguments, $timeout);
+            }
 
-        if ($event instanceof Event) {
-            $event->save();
+            if ($event instanceof Event) {
+                $event->save();
+            }
+        }
+        catch (Exception $e) {
+            System::log($e->getMessage(), __METHOD__, TL_GENERAL);
         }
 
         return $this;
