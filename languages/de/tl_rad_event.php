@@ -8,16 +8,16 @@
  */
 
 // Buttons
-$GLOBALS['TL_LANG']['tl_rad_event']['new'] = 'Neues Ereignis';
+$GLOBALS['TL_LANG']['tl_rad_event']['new'] = array('Neues Ereignis');
 
 // Legends
 $GLOBALS['TL_LANG']['tl_rad_event']['event_legend'] = 'Ereignis';
 
 // Fields
 $GLOBALS['TL_LANG']['tl_rad_event']['id'] = array('ID', 'Interne ID des Ereignisses.');
-$GLOBALS['TL_LANG']['tl_rad_event']['name'] = array('Event', 'Name des Ereignisses.');
-$GLOBALS['TL_LANG']['tl_rad_event']['pid'] = array('Subject ID', 'ID des Subjekts.');
-$GLOBALS['TL_LANG']['tl_rad_event']['ptable'] = array('Subject', 'Tabelle des Subjekts.');
+$GLOBALS['TL_LANG']['tl_rad_event']['name'] = array('Ereignis', 'Name des Ereignisses.');
+$GLOBALS['TL_LANG']['tl_rad_event']['pid'] = array('Subjekt ID', 'ID des Subjekts.');
+$GLOBALS['TL_LANG']['tl_rad_event']['ptable'] = array('Subjekt', 'Tabelle des Subjekts.');
 $GLOBALS['TL_LANG']['tl_rad_event']['tstamp'] = array('Zeitstempel');
 $GLOBALS['TL_LANG']['tl_rad_event']['attempt'] = array('Versuch');
 $GLOBALS['TL_LANG']['tl_rad_event']['timeout'] = array('Timeout', 'Dauer die das Ereignis nach seiner letzten Ausführung pausiert wird.');
