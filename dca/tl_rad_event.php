@@ -85,11 +85,15 @@ $GLOBALS['TL_DCA']['tl_rad_event']['fields'] = array(
     ),
     'pid' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
+        'eval' => array('tl_class' => 'w50', 'rgxp' => 'digit'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['pid'],
+        'inputType' => 'text',
     ),
     'ptable' => array(
         'sql' => "char(255) NOT NULL default ''",
+        'eval' => array('tl_class' => 'w50', 'maxlength' => 255, 'rgxp' => 'alnum'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['ptable'],
+        'inputType' => 'text',
     ),
     'tstamp' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
@@ -97,7 +101,9 @@ $GLOBALS['TL_DCA']['tl_rad_event']['fields'] = array(
     ),
     'timeout' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
+        'eval' => array('tl_class' => 'w50', 'rgxp' => 'digit'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['timeout'],
+        'inputType' => 'text',
     ),
     'attempt' => array(
         'sql' => "int(10) unsigned NOT NULL default '0'",
@@ -105,7 +111,9 @@ $GLOBALS['TL_DCA']['tl_rad_event']['fields'] = array(
     ),
     'name' => array(
         'sql' => "char(64) NOT NULL default ''",
+        'eval' => array('tl_class' => 'w50', 'maxlength' => 255, 'rgxp' => 'alnum'),
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['name'],
+        'inputType' => 'text',
     ),
     'argument' => array(
         'sql' => "char(255) NOT NULL default ''",
