@@ -74,7 +74,7 @@ $GLOBALS['TL_DCA']['tl_rad_event']['list'] = array(
 
 // Palettes
 $GLOBALS['TL_DCA']['tl_rad_event']['palettes'] = array(
-    'default' => '{event_legend},ptable,pid,timeout,name',
+    'default' => '{event_legend},ptable,pid,name,timeout',
 );
 
 // Fields
