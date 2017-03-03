@@ -10,7 +10,6 @@
 // Config
 $GLOBALS['TL_DCA']['tl_rad_event']['config'] = array(
     'dataContainer' => 'Table',
-    'closed' => true,
     'sql' => array(
         'keys' => array(
             'id' => 'primary',
