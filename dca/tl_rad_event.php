@@ -126,5 +126,6 @@ $GLOBALS['TL_DCA']['tl_rad_event']['fields'] = array(
     'status' => array(
         'sql' => "char(1) NOT NULL default '0'",
         'label' => &$GLOBALS['TL_LANG']['tl_rad_event']['status'],
+        'reference' => &$GLOBALS['TL_LANG']['tl_rad_event']['status.reference'],
     ),
 );
