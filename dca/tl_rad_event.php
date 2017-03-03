@@ -72,6 +72,11 @@ $GLOBALS['TL_DCA']['tl_rad_event']['list'] = array(
     ),
 );
 
+// Palettes
+$GLOBALS['TL_DCA']['tl_rad_event']['palettes'] = array(
+    'default' => '{event_legend},ptable,pid,timeout,name',
+);
+
 // Fields
 $GLOBALS['TL_DCA']['tl_rad_event']['fields'] = array(
     'id' => array(
