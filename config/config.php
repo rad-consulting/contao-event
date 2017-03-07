@@ -6,7 +6,6 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
-
 // Event
 $GLOBALS['TL_MODELS'][\RAD\Event\Model\Event::getTable()] = 'RAD\\Event\\Model\\Event';
 $GLOBALS['TL_CRON']['minutely'][] = array('RAD\\Event\\EventDispatcher', 'run');
